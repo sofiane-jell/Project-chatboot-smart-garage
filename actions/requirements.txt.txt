@@ -1,0 +1,4 @@
+rasa-sdk
+pandas
+numpy
+requests

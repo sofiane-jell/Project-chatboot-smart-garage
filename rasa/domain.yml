@@ -1,0 +1,212 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - ask_maintenance
+  - ask_oil_change
+  - ask_tire_check
+  - ask_brake_check
+  - ask_battery_check
+  - ask_service_schedule
+  - ask_garage_hours
+  - ask_appointment
+  - ask_price_estimate
+  - provide_vehicle_info
+  - ask_warning_light
+  - ask_fuel_consumption
+  - out_of_scope
+
+entities:
+  - vehicle_brand
+  - vehicle_model
+  - vehicle_year
+  - mileage
+  - warning_light_color
+
+slots:
+  vehicle_brand:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: vehicle_brand
+        conditions:
+          - active_loop: vehicle_info_form
+            requested_slot: vehicle_brand
+
+  vehicle_model:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: vehicle_model
+        conditions:
+          - active_loop: vehicle_info_form
+            requested_slot: vehicle_model
+
+  vehicle_year:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: vehicle_year
+        conditions:
+          - active_loop: vehicle_info_form
+            requested_slot: vehicle_year
+      - type: from_text
+        conditions:
+          - active_loop: vehicle_info_form
+            requested_slot: vehicle_year
+
+  mileage:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: mileage
+        conditions:
+          - active_loop: vehicle_info_form
+            requested_slot: mileage
+      - type: from_text
+        conditions:
+          - active_loop: vehicle_info_form
+            requested_slot: mileage
+
+responses:
+  utter_greet:
+    - text: "Bonjour ! Je suis SmartGarage, votre assistant automobile. Comment puis-je vous aider aujourd'hui ?"
+    - text: "Bienvenue chez SmartGarage ! Je suis là pour vous aider avec l'entretien de votre véhicule. Que puis-je faire pour vous ?"
+
+  utter_goodbye:
+    - text: "Au revoir ! Bonne route et n'oubliez pas de vérifier votre véhicule régulièrement. 🚗"
+    - text: "À bientôt ! N'hésitez pas à revenir si vous avez d'autres questions sur votre véhicule."
+
+  utter_ask_vehicle_info:
+    - text: "donnez moi le probléme de votre voiture, Nous sommes là pour vous servir !!"
+
+  utter_oil_change_info:
+    - text: |
+        🛢️ **Vidange d'huile**
+        
+        En général, il est recommandé de changer l'huile moteur :
+        • Tous les **10 000 à 15 000 km** pour les huiles synthétiques
+        • Tous les **5 000 à 7 500 km** pour les huiles minérales
+        • Au minimum **une fois par an**, même si vous roulez peu
+        
+        Souhaitez-vous que je calcule la prochaine vidange selon votre kilométrage ?
+
+  utter_tire_check_info:
+    - text: |
+        🔧 **Vérification des pneus**
+        
+        Points essentiels à contrôler :
+        • **Pression** : vérifier tous les mois (voir étiquette porte conducteur)
+        • **Usure** : le témoin d'usure ne doit pas être atteint (1,6 mm min. légal)
+        • **Équilibrage** : tous les 10 000 km ou si vibrations
+        • **Permutation** : tous les 10 000 à 15 000 km
+
+  utter_brake_check_info:
+    - text: |
+        🛑 **Contrôle des freins**
+        
+        Signes d'usure à surveiller :
+        • Bruit de grincement ou couinement au freinage
+        • Vibrations dans la pédale de frein
+        • Allongement de la distance de freinage
+        • Voyant de frein allumé
+        
+        ⚠️ Les plaquettes se remplacent généralement tous les **30 000 à 50 000 km**.
+
+  utter_battery_check_info:
+    - text: |
+        🔋 **Contrôle de la batterie**
+        
+        La batterie d'une voiture dure en moyenne **3 à 5 ans**.
+        
+        Signes d'une batterie faible :
+        • Démarrage difficile, surtout par temps froid
+        • Voyant batterie allumé
+        • Clignotants ou phares moins puissants
+        
+        Je vous recommande de faire tester la batterie gratuitement dans notre garage.
+
+  utter_service_schedule:
+    - text: |
+        📅 **Planning d'entretien général**
+        
+        • **Tous les 15 000 km** : vidange + filtres
+        • **Tous les 30 000 km** : courroie de distribution (si applicable), bougies
+        • **Tous les 60 000 km** : kit de distribution complet
+        • **Annuellement** : contrôle technique des freins, pneus, éclairage
+        
+        Ces intervalles peuvent varier selon votre modèle.
+
+  utter_garage_hours:
+    - text: |
+        🕐 **Horaires du garage SmartGarage**
+        
+        • Lundi - Vendredi : 8h00 - 18h00
+        • Samedi : 9h00 - 13h00
+        • Dimanche : Fermé
+        
+        📞 Téléphone : +33 1 23 45 67 89
+        📍 Adresse : 12 rue de la Mécanique, 75001 Paris
+
+  utter_appointment_info:
+    - text: |
+        📆 **Prendre rendez-vous**
+        
+        Vous pouvez prendre rendez-vous :
+        • En ligne sur notre site web
+        • Par téléphone : +33 1 23 45 67 89
+        • En vous présentant directement au garage
+        
+        Les délais moyens sont de **2 à 5 jours ouvrés** selon le type d'intervention.
+
+  utter_out_of_scope:
+    - text: "Je suis spécialisé dans la maintenance automobile. Pour cette question, je vous conseille de contacter directement notre équipe."
+
+  utter_affirm:
+    - text: "Parfait ! Que puis-je faire d'autre pour vous ?"
+
+  utter_deny:
+    - text: "Très bien. N'hésitez pas si vous avez d'autres questions."
+
+  utter_default:
+    - text: "Je n'ai pas bien compris votre demande. Pourriez-vous reformuler ? Je peux vous aider avec la vidange, les pneus, les freins, la batterie ou les horaires du garage."
+  
+  utter_ask_vehicle_brand:
+    - text: "Quelle est la marque de votre véhicule ? (ex: Renault, Peugeot, Toyota...)"
+
+  utter_ask_vehicle_model:
+    - text: "Quel est le modèle ? (ex: Clio, 308, Corolla...)"
+
+  utter_ask_vehicle_year:
+    - text: "Quelle est l'année de fabrication ?"
+
+  utter_ask_mileage:
+    - text: "Quel est le kilométrage actuel de votre véhicule ?"
+
+  utter_vehicle_info_confirmed:
+    - text: "Parfait ! {vehicle_brand} {vehicle_model} ({vehicle_year}), {mileage} km. Je calcule votre bilan..."
+actions:
+  - action_check_maintenance_due
+  - action_estimate_service_cost
+  - action_diagnose_warning_light
+  - action_calculate_next_oil_change
+
+forms:
+  vehicle_info_form:
+    required_slots:
+      - vehicle_brand
+      - vehicle_model
+      - vehicle_year
+      - mileage
+
+    ignored_intents:
+      - goodbye
+      - out_of_scope
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

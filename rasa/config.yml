@@ -1,0 +1,64 @@
+version: "3.1"
+language: "fr"
+
+# ──────────────────────────────────────────────
+# Pipeline NLU
+# ──────────────────────────────────────────────
+pipeline:
+  # Tokenisation française
+- name: WhitespaceTokenizer
+
+  # Extraction des n-grammes de caractères (robustesse aux fautes)
+- name: RegexFeaturizer
+
+  # Pré-traitement lexical
+- name: LexicalSyntacticFeaturizer
+
+  # TF-IDF sur les tokens
+- name: CountVectorsFeaturizer
+
+  # N-grammes de caractères (typos, accents)
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+
+  # Modèle d'intention + entités
+- name: DIETClassifier
+  epochs: 100
+  constrain_similarities: true
+  entity_recognition: true
+
+  # Extraction d'entités par règles regex
+- name: RegexEntityExtractor
+  use_regexes: true
+
+  # Résolution de co-références d'entités
+- name: EntitySynonymMapper
+
+  # Fallback si confiance < seuil
+- name: FallbackClassifier
+  threshold: 0.70
+  ambiguity_threshold: 0.10
+
+# ──────────────────────────────────────────────
+# Politiques de dialogue
+# ──────────────────────────────────────────────
+policies:
+  # Mémorise les patterns de conversation (stories)
+- name: MemoizationPolicy
+  max_history: 5
+
+  # Règles déterministes (greetings, goodbyes, fallback)
+- name: RulePolicy
+  core_fallback_threshold: 0.40
+  core_fallback_action_name: "action_default_fallback"
+  enable_fallback_prediction: true
+
+  # Apprentissage par transformeurs (TEDPolicy)
+- name: TEDPolicy
+  max_history: 10
+  epochs: 50
+  constrain_similarities: true
+  split_entities_by_comma: true
+assistant_id: 20260617-230104-reduced-ivy

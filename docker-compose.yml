@@ -1,0 +1,46 @@
+services:
+
+  rasa:
+    image: rasa/rasa:3.6.20
+    container_name: rasa
+    ports:
+      - "5005:5005"
+
+    volumes:
+      - ./rasa:/app
+
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+      - --debug
+
+    depends_on:
+      - action_server
+
+  action_server:
+    build: ./actions
+
+    container_name: action_server
+
+    ports:
+      - "5055:5055"
+
+    volumes:
+      - ./actions:/app
+
+  nginx:
+    image: nginx:latest
+
+    container_name: nginx
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./frontend:/usr/share/nginx/html
+
+    depends_on:
+      - rasa

@@ -1,0 +1,207 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Bonjour
+      - Salut
+      - Hello
+      - Bonsoir
+      - Bonjour, j'ai besoin d'aide
+      - Salut ! je veux des infos sur mon véhicule
+      - Coucou
+      - Bonne journée
+
+  - intent: goodbye
+    examples: |
+      - Au revoir
+      - Merci, bonne journée
+      - À bientôt
+      - Salut, je repars
+      - C'est tout, merci
+      - Ok merci bye
+      - Ciao
+
+  - intent: affirm
+    examples: |
+      - Oui
+      - Oui, s'il vous plaît
+      - Tout à fait
+      - Exactement
+      - C'est ça
+      - Parfait
+      - D'accord
+      - Ok
+      - Bien sûr
+
+  - intent: deny
+    examples: |
+      - Non
+      - Non merci
+      - Pas besoin
+      - Ça ira
+      - Ce n'est pas nécessaire
+      - Non, je voulais juste ça
+      - Négatif
+
+  - intent: ask_oil_change
+    examples: |
+      - Quand faire la vidange ?
+      - Il faut changer l'huile tous les combien ?
+      - Ma voiture a besoin d'une vidange
+      - Quand dois-je changer l'huile moteur ?
+      - Vidange tous les combien de km ?
+      - J'ai [80000](mileage) km, est-ce que je dois faire la vidange ?
+      - Comment savoir si l'huile doit être changée ?
+      - Mon voyant huile est allumé
+      - Quel type d'huile moteur choisir ?
+      - La vidange d'huile c'est important ?
+
+  - intent: ask_tire_check
+    examples: |
+      - Comment vérifier mes pneus ?
+      - Mes pneus sont usés
+      - Quelle pression pour mes pneus ?
+      - Il faut permuter les pneus quand ?
+      - Comment savoir si mes pneus sont bons ?
+      - J'ai une crevaison que faire ?
+      - Mes pneus font du bruit
+      - À quelle fréquence vérifier les pneus ?
+      - Pneus avant ou arrière en premier ?
+      - Équilibrer les roues c'est nécessaire ?
+
+  - intent: ask_brake_check
+    examples: |
+      - Mes freins font un bruit bizarre
+      - Quand changer les plaquettes de frein ?
+      - Le freinage est moins efficace
+      - J'entends un grincement quand je freine
+      - Les disques de frein durent combien de temps ?
+      - Mon voyant frein est allumé
+      - La pédale de frein vibre
+      - Freins usés comment savoir ?
+      - Vérification des freins
+      - Contrôle freinage
+
+  - intent: ask_battery_check
+    examples: |
+      - Ma batterie est faible
+      - La voiture ne démarre plus
+      - Batterie déchargée que faire ?
+      - Quand changer la batterie ?
+      - Comment tester la batterie ?
+      - Démarrage difficile le matin
+      - Ma batterie a 4 ans, est-ce normal ?
+      - Comment recharger une batterie de voiture ?
+      - Batterie à plat
+      - Voyant batterie allumé
+
+  - intent: ask_maintenance
+    examples: |
+      - Quand faire l'entretien ?
+      - Mon véhicule a besoin d'un entretien
+      - Entretien [Renault](vehicle_brand) [Clio](vehicle_model) [2018](vehicle_year)
+      - Révision [Peugeot](vehicle_brand) [308](vehicle_model)
+      - J'ai une [Toyota](vehicle_brand) avec [120000](mileage) km
+      - Quand faire le prochain entretien de ma [Volkswagen](vehicle_brand) [Golf](vehicle_model) ?
+      - Mon [BMW](vehicle_brand) [Série 3](vehicle_model) a [200000](mileage) km
+      - Entretien [Ford](vehicle_brand) [Focus](vehicle_model) [2020](vehicle_year)
+      - Révision [Citroën](vehicle_brand) [C3](vehicle_model) tous les combien ?
+
+  - intent: ask_service_schedule
+    examples: |
+      - C'est quoi le planning d'entretien ?
+      - Quelles révisions faire à 100 000 km ?
+      - Planning maintenance voiture
+      - À quelle fréquence entretenir ma voiture ?
+      - Calendrier des révisions
+      - Entretien périodique voiture
+      - Tous les combien de km faire révision ?
+
+
+  - intent: ask_garage_hours
+    examples: |
+      - Vous êtes ouverts quand ?
+      - Horaires du garage
+      - Vous ouvrez à quelle heure ?
+      - Garage ouvert le samedi ?
+      - Vous fermez à quelle heure ?
+      - Horaires d'ouverture
+      - Disponible le dimanche ?
+      - Vous êtes ouverts maintenant ?
+
+  - intent: ask_appointment
+    examples: |
+      - Je veux prendre rendez-vous
+      - Comment prendre un RDV ?
+      - Réserver une intervention
+      - Disponibilité pour un contrôle
+      - Planifier une révision
+      - Prendre un créneau
+      - RDV pour entretien
+      - Quand puis-je amener ma voiture ?
+
+  - intent: ask_price_estimate
+    examples: |
+      - Combien coûte une vidange ?
+      - Prix d'une révision
+      - Tarif pour changer les plaquettes
+      - Devis frein
+      - Quel est le coût d'un entretien ?
+      - Prix pneus
+      - Tarif batterie
+      - Estimation coût entretien
+
+  - intent: ask_warning_light
+    examples: |
+      - Mon voyant [orange](warning_light_color) est allumé
+      - Voyant [rouge](warning_light_color) sur le tableau de bord
+      - Que signifie ce voyant [jaune](warning_light_color) ?
+      - Voyant moteur allumé
+      - Indicateur lumineux allumé
+      - Témoin d'alerte sur mon tableau de bord
+      - À quoi correspond ce voyant ?
+      - [rouge](warning_light_color)
+      - [orange](warning_light_color)
+      - [jaune](warning_light_color)
+      - [bleu](warning_light_color)
+      - [vert](warning_light_color)
+      - c'est [rouge](warning_light_color)
+      - c'est [orange](warning_light_color)
+      - c'est [jaune](warning_light_color)
+      - c'est [bleu](warning_light_color)
+      - c'est [vert](warning_light_color)
+      - il est [rouge](warning_light_color)
+      - il est [orange](warning_light_color)
+      - il est [jaune](warning_light_color)
+      - il est [bleu](warning_light_color)
+      - il est [vert](warning_light_color)
+      - la couleur est [rouge](warning_light_color)
+      - la couleur est [orange](warning_light_color)
+      - la couleur est [jaune](warning_light_color)
+      - la couleur est [bleu](warning_light_color)
+      - la couleur est [vert](warning_light_color)
+      - voyant [rouge](warning_light_color)
+      - voyant [orange](warning_light_color)
+      - voyant [jaune](warning_light_color)
+      - voyant [bleu](warning_light_color)
+      - voyant [vert](warning_light_color)
+      - le voyant est [rouge](warning_light_color)
+      - le voyant est [orange](warning_light_color)
+      - le voyant est [jaune](warning_light_color)
+      - le voyant est [bleu](warning_light_color)
+      - le voyant est [vert](warning_light_color)
+      - témoin [rouge](warning_light_color)
+      - témoin [orange](warning_light_color)
+      - témoin [jaune](warning_light_color)
+      - indicateur [rouge](warning_light_color)
+      - indicateur [orange](warning_light_color)
+      - indicateur [jaune](warning_light_color)
+
+  - intent: out_of_scope
+    examples: |
+      - Quelle est la météo ?
+      - Raconte-moi une blague
+      - Quel est le meilleur restaurant ?
+      - Aide-moi à faire mes impôts
+      - C'est quoi un bon film ?

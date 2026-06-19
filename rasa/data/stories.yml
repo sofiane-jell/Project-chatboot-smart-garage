@@ -1,0 +1,134 @@
+version: "3.1"
+
+stories:
+  - story: salutation et aide basique
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_oil_change
+      - action: utter_oil_change_info
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: vérification pneus
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_tire_check
+      - action: utter_tire_check_info
+      - intent: affirm
+      - action: utter_ask_vehicle_info
+      - intent: provide_vehicle_info
+      - action: action_check_maintenance_due
+
+  - story: problème de freins
+    steps:
+      - intent: ask_brake_check
+      - action: utter_brake_check_info
+      - intent: ask_price_estimate
+      - action: action_estimate_service_cost
+
+  ##
+  - story: diagnostic voyant rouge
+    steps:
+      - intent: ask_warning_light
+      - action: action_diagnose_warning_light
+      - intent: ask_warning_light
+        entities:
+          - warning_light_color: rouge
+      - action: action_diagnose_warning_light
+
+  - story: diagnostic voyant orange
+    steps:
+      - intent: ask_warning_light
+      - action: action_diagnose_warning_light
+      - intent: ask_warning_light
+        entities:
+          - warning_light_color: orange
+      - action: action_diagnose_warning_light
+
+  - story: diagnostic voyant jaune
+    steps:
+      - intent: ask_warning_light
+      - action: action_diagnose_warning_light
+      - intent: ask_warning_light
+        entities:
+          - warning_light_color: jaune
+      - action: action_diagnose_warning_light
+
+  - story: diagnostic voyant bleu
+    steps:
+      - intent: ask_warning_light
+      - action: action_diagnose_warning_light
+      - intent: ask_warning_light
+        entities:
+          - warning_light_color: bleu
+      - action: action_diagnose_warning_light
+
+  - story: diagnostic voyant vert
+    steps:
+      - intent: ask_warning_light
+      - action: action_diagnose_warning_light
+      - intent: ask_warning_light
+        entities:
+          - warning_light_color: vert
+      - action: action_diagnose_warning_light
+      ##
+  - story: entretien avec collecte infos véhicule
+    steps:
+      - intent: ask_maintenance
+      - action: vehicle_info_form
+      - active_loop: vehicle_info_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_check_maintenance_due
+
+  - story: entretien - user donne tout en une seule phrase
+    steps:
+      - intent: ask_maintenance
+        entities:
+          - vehicle_brand: Renault
+          - vehicle_model: Clio
+          - vehicle_year: "2019"
+          - mileage: "85000"
+      - action: vehicle_info_form
+      - active_loop: vehicle_info_form
+      - active_loop: null
+      - action: action_check_maintenance_due
+      ##
+  - story: entretien complet avec formulaire
+    steps:
+      - intent: ask_maintenance
+      - action: vehicle_info_form
+      - active_loop: vehicle_info_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_check_maintenance_due
+
+  - story: horaires et rendez-vous
+    steps:
+      - intent: ask_garage_hours
+      - action: utter_garage_hours
+      - intent: ask_appointment
+      - action: utter_appointment_info
+
+  - story: batterie et démarrage
+    steps:
+      - intent: ask_battery_check
+      - action: utter_battery_check_info
+      - intent: ask_price_estimate
+      - action: action_estimate_service_cost
+
+  - story: planning de révision
+    steps:
+      - intent: ask_service_schedule
+      - action: utter_service_schedule
+      - intent: ask_oil_change
+      - action: action_calculate_next_oil_change
+
+  - story: hors sujet
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope

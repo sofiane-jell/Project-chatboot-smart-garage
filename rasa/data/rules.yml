@@ -1,0 +1,38 @@
+version: "3.1"
+
+rules:
+  - rule: Répondre aux salutations
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Répondre aux au revoirs
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Répondre hors sujet
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - rule: Fallback action par défaut
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default
+
+  - rule: Activer le formulaire véhicule
+    steps:
+      - intent: ask_maintenance
+      - action: vehicle_info_form
+      - active_loop: vehicle_info_form
+
+  - rule: Soumettre le formulaire et lancer le bilan    # ← this was missing
+    condition:
+      - active_loop: vehicle_info_form
+    steps:
+      - action: vehicle_info_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_check_maintenance_due             
