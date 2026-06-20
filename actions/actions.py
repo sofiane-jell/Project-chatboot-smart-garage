@@ -185,7 +185,7 @@ class ActionCheckMaintenanceDue(Action):
             msg_parts.append("**Entretiens à effectuer maintenant :**")
             msg_parts.extend(due_services)
         else:
-            msg_parts.append("✅ Aucun entretien urgent n'est dû.")
+            msg_parts.append("✅ Aucun entretien urgent maintenant.")
 
         if upcoming_services:
             msg_parts.append("\n**Entretiens à venir :**")
@@ -326,9 +326,9 @@ class ActionCalculateNextOilChange(Action):
 
         msg = (
             f"🛢️ **Prochaine vidange recommandée**\n\n"
-            f"Kilométrage actuel : **{mileage} km**\n"
-            f"Prochaine vidange à : **{next_oil_change} km**\n"
-            f"Dans : **{next_oil_change - mileage} km**\n\n"
+            f"Kilométrage actuel : **{mileage} km**\n\n"
+            f"Prochaine vidange à : **{next_oil_change} km**\n\n"
+            f"Nombre de kilomètres restants pour le prochain vidange  : **{next_oil_change - mileage} km**\n\n"
             "⚠️ Au minimum une fois par an même si vous roulez peu.\n"
             "Souhaitez-vous prendre rendez-vous ?"
         )

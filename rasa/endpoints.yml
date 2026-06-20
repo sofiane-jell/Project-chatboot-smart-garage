@@ -1,23 +1,2 @@
-# endpoints.yml — Configuration des services externes
-
 action_endpoint:
   url: "http://action_server:5055/webhook"
-    
-# Tracker store (SQLite en dev, PostgreSQL en prod)
-tracker_store:
-  type: sql
-  dialect: sqlite
-  db: "smartgarage_tracker.db"
-  # Pour PostgreSQL en production, décommenter :
-  # type: sql
-  # dialect: postgresql
-  # url: ${DB_URL}
-  # username: ${DB_USER}
-  # password: ${DB_PASSWORD}
-  # db: smartgarage
-
-# Event broker (optionnel - Kafka/RabbitMQ en prod)
-# event_broker:
-#   type: kafka
-#   url: kafka:9092
-#   topic: smartgarage_events

@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-mileage",
+      "2": "I-mileage",
+      "3": "L-mileage",
+      "4": "U-mileage",
+      "5": "B-vehicle_brand",
+      "6": "I-vehicle_brand",
+      "7": "L-vehicle_brand",
+      "8": "U-vehicle_brand",
+      "9": "B-vehicle_model",
+      "10": "I-vehicle_model",
+      "11": "L-vehicle_model",
+      "12": "U-vehicle_model",
+      "13": "B-vehicle_year",
+      "14": "I-vehicle_year",
+      "15": "L-vehicle_year",
+      "16": "U-vehicle_year",
+      "17": "B-warning_light_color",
+      "18": "I-warning_light_color",
+      "19": "L-warning_light_color",
+      "20": "U-warning_light_color",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-mileage": 1,
+      "I-mileage": 2,
+      "L-mileage": 3,
+      "U-mileage": 4,
+      "B-vehicle_brand": 5,
+      "I-vehicle_brand": 6,
+      "L-vehicle_brand": 7,
+      "U-vehicle_brand": 8,
+      "B-vehicle_model": 9,
+      "I-vehicle_model": 10,
+      "L-vehicle_model": 11,
+      "U-vehicle_model": 12,
+      "B-vehicle_year": 13,
+      "I-vehicle_year": 14,
+      "L-vehicle_year": 15,
+      "U-vehicle_year": 16,
+      "B-warning_light_color": 17,
+      "I-warning_light_color": 18,
+      "L-warning_light_color": 19,
+      "U-warning_light_color": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

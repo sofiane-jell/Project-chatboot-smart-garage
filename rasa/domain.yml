@@ -18,6 +18,7 @@ intents:
   - ask_warning_light
   - ask_fuel_consumption
   - out_of_scope
+  - inform
 
 entities:
   - vehicle_brand
@@ -88,8 +89,11 @@ responses:
         🛢️ **Vidange d'huile**
         
         En général, il est recommandé de changer l'huile moteur :
+        
         • Tous les **10 000 à 15 000 km** pour les huiles synthétiques
+        
         • Tous les **5 000 à 7 500 km** pour les huiles minérales
+        
         • Au minimum **une fois par an**, même si vous roulez peu
         
         Souhaitez-vous que je calcule la prochaine vidange selon votre kilométrage ?
@@ -99,9 +103,13 @@ responses:
         🔧 **Vérification des pneus**
         
         Points essentiels à contrôler :
+        
         • **Pression** : vérifier tous les mois (voir étiquette porte conducteur)
+        
         • **Usure** : le témoin d'usure ne doit pas être atteint (1,6 mm min. légal)
+        
         • **Équilibrage** : tous les 10 000 km ou si vibrations
+        
         • **Permutation** : tous les 10 000 à 15 000 km
 
   utter_brake_check_info:
@@ -109,9 +117,13 @@ responses:
         🛑 **Contrôle des freins**
         
         Signes d'usure à surveiller :
+        
         • Bruit de grincement ou couinement au freinage
+        
         • Vibrations dans la pédale de frein
+        
         • Allongement de la distance de freinage
+        
         • Voyant de frein allumé
         
         ⚠️ Les plaquettes se remplacent généralement tous les **30 000 à 50 000 km**.
@@ -123,8 +135,11 @@ responses:
         La batterie d'une voiture dure en moyenne **3 à 5 ans**.
         
         Signes d'une batterie faible :
+        
         • Démarrage difficile, surtout par temps froid
+        
         • Voyant batterie allumé
+        
         • Clignotants ou phares moins puissants
         
         Je vous recommande de faire tester la batterie gratuitement dans notre garage.
@@ -134,8 +149,11 @@ responses:
         📅 **Planning d'entretien général**
         
         • **Tous les 15 000 km** : vidange + filtres
+        
         • **Tous les 30 000 km** : courroie de distribution (si applicable), bougies
+        
         • **Tous les 60 000 km** : kit de distribution complet
+        
         • **Annuellement** : contrôle technique des freins, pneus, éclairage
         
         Ces intervalles peuvent varier selon votre modèle.
@@ -145,10 +163,13 @@ responses:
         🕐 **Horaires du garage SmartGarage**
         
         • Lundi - Vendredi : 8h00 - 18h00
+        
         • Samedi : 9h00 - 13h00
+        
         • Dimanche : Fermé
         
         📞 Téléphone : +33 1 23 45 67 89
+        
         📍 Adresse : 12 rue de la Mécanique, 75001 Paris
 
   utter_appointment_info:
@@ -156,8 +177,11 @@ responses:
         📆 **Prendre rendez-vous**
         
         Vous pouvez prendre rendez-vous :
+        
         • En ligne sur notre site web
+        
         • Par téléphone : +33 1 23 45 67 89
+        
         • En vous présentant directement au garage
         
         Les délais moyens sont de **2 à 5 jours ouvrés** selon le type d'intervention.

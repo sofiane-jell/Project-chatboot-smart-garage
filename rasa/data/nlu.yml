@@ -205,3 +205,36 @@ nlu:
       - Quel est le meilleur restaurant ?
       - Aide-moi à faire mes impôts
       - C'est quoi un bon film ?
+
+  - intent: inform
+    examples: |
+      - [Renault](vehicle_brand)
+      - [Peugeot](vehicle_brand)
+      - [Toyota](vehicle_brand)
+      - [Volkswagen](vehicle_brand)
+      - [Dacia](vehicle_brand)
+      - [Ford](vehicle_brand)
+      - [BMW](vehicle_brand)
+      - [Citroën](vehicle_brand)
+      - [Hyundai](vehicle_brand)
+      - [Fiat](vehicle_brand)
+      - [Clio](vehicle_model)
+      - [308](vehicle_model)
+      - [Golf](vehicle_model)
+      - [Master](vehicle_model)
+      - [Logan](vehicle_model)
+      - [Focus](vehicle_model)
+      - [Sandero](vehicle_model)
+      - [Corolla](vehicle_model)
+      - [Polo](vehicle_model)
+      - [Megane](vehicle_model)
+      - [2010](vehicle_year)
+      - [2015](vehicle_year)
+      - [2018](vehicle_year)
+      - [2020](vehicle_year)
+      - [2022](vehicle_year)
+      - [85000](mileage)
+      - [120000](mileage)
+      - [50000](mileage)
+      - [200000](mileage)
+      - [30000](mileage)
