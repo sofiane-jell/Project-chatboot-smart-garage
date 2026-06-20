@@ -1,0 +1,14 @@
+# Rasa cache
+rasa/.rasa/
+.rasa/
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Logs
+*.log
